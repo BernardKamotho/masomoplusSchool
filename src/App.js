@@ -1,24 +1,84 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import HomeComponent from './components/HomeComponent';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+import RegisterComponent from './components/RegisterComponent';
+import LoginComponent from './components/LoginComponent';
+import NotFound from './components/NotFound';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './context/ProtectedRoute';
+import AdminLayout from './components/admin/AdminLayout';
+import AdminDashboard from './components/admin/AdminDashboard';
+import TeacherLayout from './components/teacher/TeacherLayout';
+import TeacherDashboard from './components/teacher/TeacherDashboard';
+import ParentLayout from './components/parent/ParentLayout';
+import ParentDashboard from './components/parent/ParentDashboard';
+import NotAuthorized from './components/NotAuthorized';
+import Teachers from './components/admin/Teachers';
+import Parent from './components/admin/Parent';
+import Students from './components/admin/Students';
+import Classes from './components/admin/Classes';
+import ClassAdd from './components/admin/forms/ClassAdd';
+import ClassEdit from './components/admin/forms/ClassEdit';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <AuthProvider>
+      <Routes>
+        <Route path="/" element={<HomeComponent/>} />
+
+        {/* Below are the admin routes */}
+        <Route path='/admin-dashboard' 
+        element={
+          <ProtectedRoute allowedRoles={["admin"]}>
+            <AdminLayout/>
+          </ProtectedRoute>
+        }
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Route path='' element={<AdminDashboard/>} />
+          <Route path='teachers' element={<Teachers />} />
+          <Route path='parents' element={<Parent />} />
+          <Route path='students' element={<Students />} />
+          <Route path='classes' element={<Classes />} />
+          <Route path='classes/add' element={<ClassAdd/>} />
+          <Route path='classes/edit' element={<ClassEdit/>} />
+        </Route>
+
+        {/* Below are the teacher routes */}
+        <Route path='/teacher-dashboard' 
+        element={
+          <ProtectedRoute allowedRoles={["teacher"]}>
+            <TeacherLayout/>
+          </ProtectedRoute>
+        }
+        >
+          <Route path='' element={<TeacherDashboard/>} />
+        </Route>
+
+        {/* Below are the parent routes */}
+        <Route path='/parent-dashboard' 
+        element={
+          <ProtectedRoute allowedRoles={["parent"]}>
+            <ParentLayout/>
+          </ProtectedRoute>
+        }
+        >
+          <Route path='' element={<ParentDashboard/>} />
+        </Route>
+
+
+        <Route path="/register" element={<RegisterComponent/>} />
+        <Route path="/login"  element={<LoginComponent/>} />
+
+        {/* Defaults */}
+        <Route path='/not-authorized' element={<NotAuthorized/>} />
+        <Route path="*" element={<NotFound/>} />
+      </Routes>
+      </AuthProvider>
+    </Router>
   );
 }
 
