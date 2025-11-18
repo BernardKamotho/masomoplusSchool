@@ -17,7 +17,7 @@ const Classes = () => {
     headers : {Authorization : `Bearer ${token}`}
   }
 
-  console.log("The classes fetched from the API are: ", classes)
+  // console.log("The classes fetched from the API are: ", classes)
 
 
   // Below is the function that shall enable us to fetch the classes from the API

@@ -9,6 +9,7 @@ const TeacherEdit = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
   const [subject, setSubject] = useState('');
 
   const { token } = useContext(AuthContext);
@@ -37,7 +38,7 @@ const TeacherEdit = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = { name, email, phone, subject };
+    const data = { name, email, phone, subject,password };
 
     try {
       toast.info('Updating...');
@@ -121,6 +122,17 @@ const TeacherEdit = () => {
                 placeholder="Subject"
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="col-md-6 mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="update the password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
