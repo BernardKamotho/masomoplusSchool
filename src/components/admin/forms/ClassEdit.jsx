@@ -55,8 +55,8 @@ const ClassEdit = () => {
     const handleEdit = async (e) =>{
         e.preventDefault()
 
-        // prepare the dara gotten from the hooks
-        const data = {name, gradeLevel, classYear} 
+        // prepare the data gotten from the hooks
+        const data = {name, gradeLevel, classYear,teacher:selectedTeacher} 
 
         try{
             toast.info("Please wait as we update the class details...")
