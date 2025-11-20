@@ -13,7 +13,7 @@ const LoginComponent = () => {
     //from context get the function to change the state of token and user   
   const {setToken,setUser}=useContext(AuthContext)
 
-  const url = "https://kindergartenapi-olyn.onrender.com/api/user/login";
+  const url = "https://kindergartenapi.onrender.com/api/auth/login";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
