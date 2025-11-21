@@ -23,7 +23,7 @@ const TeacherAdd = () => {
 
     try {
       toast.info('Adding the teacher. Please wait..');
-      const res = await axios.post('https://kindergartenapi-olyn.onrender.com/api/teacher/add', data, authHeader);
+      const res = await axios.post('https://kindergartenapi.onrender.com/api/teachers', data, authHeader);
 
       toast.dismiss();
       toast.success(res.data.message || 'Teacher added successfully!');

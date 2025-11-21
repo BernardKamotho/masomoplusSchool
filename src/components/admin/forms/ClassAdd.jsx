@@ -28,7 +28,7 @@ const ClassAdd = () => {
 
     try{
       toast.info("Please wait as we add the new class...")
-      const res = await axios.post("https://kindergartenapi-olyn.onrender.com/api/classroom/add", data, authHeader)
+      const res = await axios.post("https://kindergartenapi.onrender.com/api/classrooms", data, authHeader)
 
       toast.dismiss()
       toast.success(res.data.message || "Class added successfully");

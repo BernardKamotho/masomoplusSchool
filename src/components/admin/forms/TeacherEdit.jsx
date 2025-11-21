@@ -43,7 +43,7 @@ const TeacherEdit = () => {
     try {
       toast.info('Updating...');
       const res = await axios.put(
-        `https://kindergartenapi-olyn.onrender.com/api/teacher/${selectedTeacher._id}`,
+        `https://kindergartenapi.onrender.com/api/teachers/${selectedTeacher._id}`,
         data,
         authHeader
       );

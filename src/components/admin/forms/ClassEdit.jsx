@@ -32,7 +32,7 @@ const ClassEdit = () => {
         try{
             toast.info("Loading teachers...")
 
-            const res = await axios.get("https://kindergartenapi-olyn.onrender.com/api/teacher", authHeader)
+            const res = await axios.get("https://kindergartenapi.onrender.com/api/teachers", authHeader)
 
             // console.log("The details of the fetched teachers are: ", res.data)
             setTeachers(res.data)
@@ -61,7 +61,7 @@ const ClassEdit = () => {
         try{
             toast.info("Please wait as we update the class details...")
 
-            const res = await axios.put(`https://kindergartenapi-olyn.onrender.com/api/classroom/${selectedClass._id}`, data, authHeader)
+            const res = await axios.put(`https://kindergartenapi.onrender.com/api/classrooms/${selectedClass._id}`, data, authHeader)
 
             toast.dismiss()
             toast.success(res.data.message || "Class details updated successfully")

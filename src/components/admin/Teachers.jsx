@@ -17,7 +17,7 @@ const Teachers = () => {
   const fetchTeachers = async () => {
     try {
       toast.info('Loading teachers...');
-      const res = await axios.get('https://kindergartenapi-olyn.onrender.com/api/teacher/', authHeader);
+      const res = await axios.get('https://kindergartenapi.onrender.com/api/teachers/', authHeader);
       setTeachers(res.data);
       
     } catch (err) {
@@ -34,7 +34,7 @@ const Teachers = () => {
     if (window.confirm('Delete this teacher?')) {
       try {
         toast.warning('Deleting teacher...');
-        await axios.delete(`https://kindergartenapi-olyn.onrender.com/api/teacher/${id}`, authHeader);
+        await axios.delete(`https://kindergartenapi.onrender.com/api/teachers/${id}`, authHeader);
         fetchTeachers();
       } catch (err) {
         toast.dismiss();

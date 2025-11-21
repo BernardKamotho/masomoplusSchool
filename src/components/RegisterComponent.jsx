@@ -26,7 +26,7 @@ const RegisterComponent = () => {
 
 
     // specify the url/Api endpoint where the data with go through
-    const url = "https://kindergartenapi-olyn.onrender.com/api/admin/register"
+    const url = "https://kindergartenapi.onrender.com/api/auth"
 
     // below is the function to handle the submit event in registering an admin
     const handleSubmit = async (e) =>{

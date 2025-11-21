@@ -24,6 +24,11 @@ import ClassAdd from './components/admin/forms/ClassAdd';
 import ClassEdit from './components/admin/forms/ClassEdit';
 import TeacherAdd from './components/admin/forms/TeacherAdd';
 import TeacherEdit from './components/admin/forms/TeacherEdit';
+import StudentAdd from './components/admin/forms/StudentAdd';
+import StudentEdit from './components/admin/forms/StudentEdit';
+import ParentEdit from './components/admin/forms/ParentEdit';
+import ParentAdd from './components/admin/forms/ParentAdd';
+import ClassesforParents from './components/parent/ClassesforParents';
 
 function App() {
   return (
@@ -42,10 +47,14 @@ function App() {
         >
           <Route path='' element={<AdminDashboard/>} />
           <Route path='teachers' element={<Teachers />} />
-           <Route path='teachers/add' element={<TeacherAdd />} />
+          <Route path='teachers/add' element={<TeacherAdd />} />
           <Route path='teachers/edit' element={<TeacherEdit />} />
-          <Route path='parents' element={<Parent />} />
+          <Route path='parents' element={<Parent />} />          
+        <Route path='parents/edit' element={<ParentEdit/>} />
+        <Route path='parents/add' element={<ParentAdd/>} />
           <Route path='students' element={<Students />} />
+          <Route path='students/add' element={<StudentAdd/>} />
+          <Route path='students/edit' element={<StudentEdit/>} />
           <Route path='classes' element={<Classes />} />
           <Route path='classes/add' element={<ClassAdd/>} />
           <Route path='classes/edit' element={<ClassEdit/>} />
@@ -71,6 +80,7 @@ function App() {
         }
         >
           <Route path='' element={<ParentDashboard/>} />
+          <Route path='classes' element={<ClassesforParents />} />
         </Route>
 
 

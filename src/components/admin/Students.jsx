@@ -33,7 +33,7 @@ const Students = () => {
     if (window.confirm('Delete this student?')) {
       try {
         toast.warning('Deleting student...');
-        await axios.delete(`https://kindergartenapi-olyn.onrender.com/api/student/${id}`, authHeader);
+        await axios.delete(`https://kindergartenapi.onrender.com/api/students/${id}`, authHeader);
         fetchStudents();
       } catch (err) {
         toast.dismiss();

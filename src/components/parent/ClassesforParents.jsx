@@ -4,8 +4,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
 
-const Classes = () => {
-
+const ClassesforParents = () => {
   // Below we have classes hook that will store all the classes fetched from the API
   const[classes, setClasses] = useState([]);
   const {token} = useContext(AuthContext)
@@ -84,10 +83,7 @@ const Classes = () => {
            <i className="bi bi-journal-bookmark me-2"></i> Classes List
           </h5>
 
-          {/* below is the button to add a new class */}
-          <button className="btn btn-success" onClick={() => navigate("/admin-dashboard/classes/add")}>
-           <i class="bi bi-plus-circle"></i> Add Class
-          </button>
+        
         </div>
 
         {/* Below we populate the classes inside of a table by use of the map function */}
@@ -102,11 +98,8 @@ const Classes = () => {
                 <tr>
                   <th>#</th>
                   <th>Class Name</th>
-                  <th>Class Level</th>
-                  <th>Clas Year</th>
                   <th>Teacher</th>
-                  <th>Phone</th>
-                  <th>Actions</th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -114,20 +107,8 @@ const Classes = () => {
                   <tr key={cls._id}>
                     <td>{ index + 1 }</td>
                     <td>{ cls.name }</td>
-                    <td> { cls.gradeLevel }</td>
-                    <td> { cls.classYear }</td>
                     <td> { cls.teacher?.name || "N/A" }</td>
-                    <td> { cls.teacher?.phone || "N/A" }</td>
-                    <td>
-                      <button className='btn btn-sm btn-warning me-2'><i class="bi bi-pencil"
-                      onClick={()=> handleEdit(cls)}></i> Edit
-                      </button>
-
-                      <button className='btn btn-sm btn-danger me-2'
-                      onClick={()=> handleDelete(cls._id)}
-                      ><i class="bi bi-trash"></i> Delete
-                      </button>
-                    </td>
+                    
                   </tr>
                 ))}
               </tbody>
@@ -139,4 +120,4 @@ const Classes = () => {
   )
 }
 
-export default Classes
+export default ClassesforParents
