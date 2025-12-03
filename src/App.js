@@ -29,6 +29,7 @@ import StudentEdit from './components/admin/forms/StudentEdit';
 import ParentEdit from './components/admin/forms/ParentEdit';
 import ParentAdd from './components/admin/forms/ParentAdd';
 import ClassesforParents from './components/parent/ClassesforParents';
+import Classroom from './components/teacher/ClassRoom';
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
         }
         >
           <Route path='' element={<TeacherDashboard/>} />
+          <Route path='classroom' element={<Classroom />} />
         </Route>
 
         {/* Below are the parent routes */}
